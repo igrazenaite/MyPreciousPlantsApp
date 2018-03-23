@@ -7,9 +7,10 @@ import {
     TableHeader,
     TableHeaderColumn,
     TableRow,
+    TableRowColumn,
   } from 'material-ui/Table';
+import FlatButton from 'material-ui/FlatButton/FlatButton';
 import {API} from '../Host';
-import CollectionComponent from './CollectionComponent'
 
 const styles ={
     marginLeft: 0,
@@ -40,7 +41,7 @@ class CollectionContainer extends Component{
 
     componentWillMount(){
         axios
-            .get(API+"/collection/plants")
+            .get(API+"/collection")
             .then((response) => {
                 console.log(response);
                 this.setState({plants: response.data});
@@ -51,6 +52,15 @@ class CollectionContainer extends Component{
     }
 
     render(){
+        var plantsList = this.state.plants.map((plant, index) => (
+            <TableRow key={index} >
+                <TableRowColumn>{plant.plantId}</TableRowColumn>
+                <TableRowColumn>{plant.name}</TableRowColumn>
+                {/* <TableRowColumn>{plant.imgUrl}</TableRowColumn> */}
+                <TableRowColumn><FlatButton id="moreButton" label="More" 
+              primary={true} /* onClick={()=>this.openModal(plant.plantId)} *//></TableRowColumn>
+            </TableRow>
+    ))
 
         return(
             <MuiThemeProvider>
@@ -72,24 +82,30 @@ class CollectionContainer extends Component{
                     Plant Collection</TableHeaderColumn>
                 </TableRow>
                 <TableRow>
+                {/* <TableHeaderColumn 
+                  style={{
+                    whiteSpace: "normal",
+                    wordWrap: "break-word"
+                  }} 
+                  tooltip="Picture">Picture</TableHeaderColumn> */}
                 <TableHeaderColumn 
                   style={{
                     whiteSpace: "normal",
                     wordWrap: "break-word"
                   }} 
-                  tooltip="Name">Name</TableHeaderColumn>
+                  tooltip="PlantId">Id</TableHeaderColumn>
+                <TableHeaderColumn 
+                  style={{
+                    whiteSpace: "normal",
+                    wordWrap: "break-word"
+                  }} 
+                  tooltip="Name">Name</TableHeaderColumn> 
                   <TableHeaderColumn 
                   style={{
                     whiteSpace: "normal",
                     wordWrap: "break-word"
                   }} 
-                  tooltip="Price">Price</TableHeaderColumn>
-                  <TableHeaderColumn 
-                  style={{
-                    whiteSpace: "normal",
-                    wordWrap: "break-word"
-                  }} 
-                  tooltip="Description">Description</TableHeaderColumn>
+                  tooltip="More">Information</TableHeaderColumn>
                 </TableRow>
                 </TableHeader>
                 <TableBody
@@ -97,7 +113,7 @@ class CollectionContainer extends Component{
                     deselectOnClickaway={this.state.deselectOnClickaway}
                     showRowHover={this.state.showRowHover}
                 >
-                    <CollectionComponent plantsList={this.state.plants}/>
+                    {plantsList}
                 </TableBody>
                 </Table>      
             </div>

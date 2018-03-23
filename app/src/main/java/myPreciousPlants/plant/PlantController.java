@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -19,7 +20,7 @@ public class PlantController {
 	@Autowired
 	private PlantService plantService;
 
-	@RequestMapping(value = "/plants", method = RequestMethod.GET)
+	@RequestMapping(method = RequestMethod.GET)
 	public List<PlantForClient> giveAllPlants() {
 		return getPlantService().receiveAllPlants();
 	}
@@ -28,6 +29,18 @@ public class PlantController {
 	@ResponseStatus(HttpStatus.CREATED)
 	public void createPlant(@RequestBody final AddNewPlant newPlant) {
 		plantService.addNewPlant(newPlant);
+	}
+
+	@RequestMapping(path = "/{plantId}", method = RequestMethod.PUT)
+	@ResponseStatus(HttpStatus.CREATED)
+	public void updateExistingPlant(@RequestBody final Plant plant, @PathVariable final Long plantId) {
+		plantService.updatePlant(plant, plantId);
+	}
+
+	@RequestMapping(path = "/{plantId}", method = RequestMethod.DELETE)
+	@ResponseStatus(HttpStatus.NO_CONTENT)
+	public void deletePlantFromDatabase(@PathVariable final Long plantId) {
+		plantService.deletePlant(plantId);
 	}
 
 	public PlantService getPlantService() {

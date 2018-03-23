@@ -21,7 +21,7 @@ ReactDOM.render((
     <Route path="/" component={InitialApp}>
     <IndexRoute component={App}/>
     <Route path="/newUserRegistration" component={NewUserRegistrationForm}/>
-    <Route path="/collection/plants" component={CollectionContainer}/>
+    <Route path="/collection" component={CollectionContainer}/>
     <Route path="*" component={NoMatch}/>
     </Route>
   </Router>), 

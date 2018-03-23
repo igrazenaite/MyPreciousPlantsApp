@@ -18,6 +18,8 @@ public class PlantService {
 		List<Plant> plantsFromDatabase = getPlantRepository().findAll();
 		List<PlantForClient> plantsForClient = plantsFromDatabase.stream().map((plant) -> {
 			PlantForClient pfc = new PlantForClient();
+			pfc.setPlantId(plant.getPlantId());
+			//plnt.setImageURL(plant.getImageURL());
 			pfc.setName(plant.getName());
 			pfc.setPrice(plant.getPrice());
 			pfc.setDescription(plant.getDescription());
@@ -28,11 +30,32 @@ public class PlantService {
 
 	public void addNewPlant(AddNewPlant newPlant) {
 		Plant plant = new Plant();
+		//plnt.setImageURL(plant.getImageURL());
 		plant.setName(newPlant.getName());
 		plant.setPrice(newPlant.getPrice());
 		plant.setDescription(newPlant.getDescription());
 		plantRepository.save(plant);
 
+	}
+	
+	public void updatePlant(Plant plant, Long plantId) {
+		Plant plnt = plantRepository.findOne(plantId);
+		//plnt.setImageURL(plant.getImageURL());
+		plnt.setName(plant.getName());
+		plnt.setPrice(plant.getPrice());
+		plnt.setDateOfPurchase(plant.getDateOfPurchase());
+		plnt.setPlaceOfPurchase(plant.getPlaceOfPurchase());
+		plnt.setDescription(plant.getDescription());
+		plnt.setDateOfRepot(plant.getDateOfRepot());
+		plnt.setRepotInfo(plant.getRepotInfo());
+		plnt.setDateOfBloom(plant.getDateOfBloom());
+		plnt.setBloomInfo(plant.getBloomInfo());
+		plnt.setNotes(plant.getNotes());
+		plantRepository.save(plnt);
+	}
+	
+	public void deletePlant(Long plantId) {
+		plantRepository.delete(plantId);
 	}
 
 	public PlantRepository getPlantRepository() {

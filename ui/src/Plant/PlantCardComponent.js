@@ -16,10 +16,13 @@ class PlantCardComponent extends Component{
                      <div className="caption">
                         <h3>{this.props.plant.name}</h3>
                         <p>Price: {this.props.plant.price}$</p>
-                        <p>Quantity: {this.props.plant.quantity}</p>
+                        <p>Date of purchase: {this.props.plant.dateOfPurchase}</p>
+                        <p>Place of purchase: {this.props.plant.placeOfPurchase}</p>
                         <p>Description: {this.props.plant.description}</p>
-                        <p><button className="btn btn-default">More</button></p> 
-                        <p><button className="btn btn-primary">Buy</button></p>  
+                        <p>Repotting history: {this.props.plant.repotting}</p>
+                        <p>Blooming history: {this.props.plant.blooming}</p>
+                        <p>Notes: {this.props.plant.notes}</p>
+                        <p><button className="btn btn-default">Back</button></p> 
                     </div>
                 </div>
             </div>
