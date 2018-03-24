@@ -24,6 +24,11 @@ public class PlantController {
 	public List<PlantForClient> giveAllPlants() {
 		return getPlantService().receiveAllPlants();
 	}
+	
+	@RequestMapping(value = "/{plantId}", method = RequestMethod.GET)
+	public Plant findByPlantId(@PathVariable("plantId") final long plantId) {
+		return getPlantService().receiveOnePlant(plantId);
+	}
 
 	@RequestMapping(value = "/addNewPlant", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
@@ -31,7 +36,7 @@ public class PlantController {
 		plantService.addNewPlant(newPlant);
 	}
 
-	@RequestMapping(path = "/{plantId}", method = RequestMethod.PUT)
+	@RequestMapping(path = "/update/{plantId}", method = RequestMethod.PUT)
 	@ResponseStatus(HttpStatus.CREATED)
 	public void updateExistingPlant(@RequestBody final Plant plant, @PathVariable final Long plantId) {
 		plantService.updatePlant(plant, plantId);

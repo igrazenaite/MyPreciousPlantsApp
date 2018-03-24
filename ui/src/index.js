@@ -6,6 +6,8 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import App from './App';
 import NewUserRegistrationForm from './User/NewUserRegistrationForm';
 import CollectionContainer from './Collection/CollectionContainer';
+import PlantCardComponent from './Plant/PlantCardComponent'
+import NewPlantForm from './Plant/NewPlantForm';
 
 var NoMatch = (props) =>{
   return <div>Page does not exist</div>;
@@ -22,6 +24,8 @@ ReactDOM.render((
     <IndexRoute component={App}/>
     <Route path="/newUserRegistration" component={NewUserRegistrationForm}/>
     <Route path="/collection" component={CollectionContainer}/>
+    {/* <Route path="/collection/plant" component={PlantCardComponent}/> */}
+    <Route path="/collection/addNewPlant" component={NewPlantForm}/>
     <Route path="*" component={NoMatch}/>
     </Route>
   </Router>), 

@@ -8,9 +8,10 @@ import {
     TableHeaderColumn,
     TableRow,
     TableRowColumn,
-  } from 'material-ui/Table';
+} from 'material-ui/Table';
 import FlatButton from 'material-ui/FlatButton/FlatButton';
 import {API} from '../Host';
+import PlantCardComponent from '../Plant/PlantCardComponent';
 
 const styles ={
     marginLeft: 0,
@@ -35,7 +36,20 @@ class CollectionContainer extends Component{
             height: '300px',
             showModal: false,
 
-            plants: []
+            plants: [],
+            plantId:'',
+            name:'',
+            price:'',
+            dateOfPurchase:'',
+            placeOfPurchase:'',
+            description:'',
+            dateOfRepot:'',
+            repotInfo:'',
+            dateOfBloom:'',
+            bloomInfo:'',
+            notes:'',
+
+            plantInfo:[]
         }
     }
 
@@ -51,14 +65,35 @@ class CollectionContainer extends Component{
             });
     }
 
+    openModal = (plantId) => {
+        axios.get(API+"/collection/" + plantId)
+          .then((response) => {
+            this.setState({ plantInfo: response.data })
+            this.setState({ showModal: !this.state.showModal })
+          })
+          .catch((error) => {
+            console.log(error);
+    
+          })
+    }
+      
+      closeModal=()=>{
+        this.setState({showModal: false})
+    }
+
     render(){
+
+        if (!this.state.plants) {
+            return null;
+        }
+      
         var plantsList = this.state.plants.map((plant, index) => (
             <TableRow key={index} >
                 <TableRowColumn>{plant.plantId}</TableRowColumn>
                 <TableRowColumn>{plant.name}</TableRowColumn>
-                {/* <TableRowColumn>{plant.imgUrl}</TableRowColumn> */}
+                {/* <TableRowColumn>{plant.imageUrl}</TableRowColumn> */}
                 <TableRowColumn><FlatButton id="moreButton" label="More" 
-              primary={true} /* onClick={()=>this.openModal(plant.plantId)} *//></TableRowColumn>
+              primary={true} onClick={()=>this.openModal(plant.plantId)}/></TableRowColumn>
             </TableRow>
     ))
 
@@ -115,7 +150,11 @@ class CollectionContainer extends Component{
                 >
                     {plantsList}
                 </TableBody>
-                </Table>      
+                </Table>
+                <PlantCardComponent
+                    open={this.state.showModal}
+                    closeAction={this.closeModal}
+                    plantInfo={this.state.plantInfo}/>      
             </div>
             </MuiThemeProvider>
         )

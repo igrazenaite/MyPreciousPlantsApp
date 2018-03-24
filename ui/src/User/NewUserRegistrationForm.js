@@ -1,7 +1,14 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import TextField from 'material-ui/TextField';
+import RaisedButton from 'material-ui/RaisedButton';
 import {API} from '../Host';
 import swal from 'sweetalert';
+
+const styles = {
+      margin: 12
+}
 
 class NewUserRegistrationForm extends Component{
     constructor(props){
@@ -95,30 +102,45 @@ class NewUserRegistrationForm extends Component{
 
     render(){
         return(
-            <div className="row">
-            <div className="col-sm-12 col-md-12">
-                <button onClick={this.goMain}>Back to Main Page</button>
+            <MuiThemeProvider>
+                <div>
+                    <RaisedButton 
+                        label="Go to Main" 
+                        primary={false} 
+                        style={styles} 
+                        onClick={()=>this.goMain()} 
+                    />
                 <form onSubmit={this.registerUser} ref="form" open={this.props.open}>
-                    <div className="text-field">
-                    <label htmlFor="userName">Username: </label>
-                    <input type="text"  value={this.state.userName}  onChange={this.getUserName}/>
-                    </div><br/>
+                    <TextField
+                        floatingLabelText="Username"
+                        floatingLabelFixed={true}
+                        onChange={(event, newValue) => this.setState({ userName: newValue })}
+                    /><br />
 
-                    <div className="text-field">
-                    <label htmlFor="password">Password: </label>
-                    <input type="password" value={this.state.password} onChange={this.getPassword}/>
-                    </div><br/>
+                    <TextField
+                        floatingLabelText="Password"
+                        floatingLabelFixed={true}
+                        type="password"
+                        onChange={(event, newValue) => this.setState({ password: newValue })}
+                    /><br />
 
-                    <div className="text-field">
-                    <label htmlFor="repeatPassword">Repeat password: </label>
-                    <input type="password" value={this.state.repeatPassword} onChange={this.getRepeatPassword}/>
-                    </div><br/>
+                    <TextField
+                        floatingLabelText="Repeat Password"
+                        floatingLabelFixed={true}
+                        type="password"
+                        onChange={(event, newValue) => this.setState({ repeatPassword: newValue })}
+                    /><br />
 
-                    <button type="save" className="btn btn-default" onClick={this.registerUser}>Register</button>
+                    <RaisedButton 
+                        label="Register" 
+                        primary={true} 
+                        style={styles} 
+                        onClick={(event)=>this.registerUser(event)} 
+                    />
 
                 </form>
-            </div>
-            </div>
+                </div>
+            </MuiThemeProvider>
         )
     }
 
