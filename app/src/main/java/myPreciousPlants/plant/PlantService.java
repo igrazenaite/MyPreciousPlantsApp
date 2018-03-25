@@ -38,7 +38,14 @@ public class PlantService {
 		// plnt.setImageURL(plant.getImageURL());
 		plant.setName(newPlant.getName());
 		plant.setPrice(newPlant.getPrice());
+		plant.setDateOfPurchase(newPlant.getDateOfPurchase());
+		plant.setPlaceOfPurchase(newPlant.getPlaceOfPurchase());
 		plant.setDescription(newPlant.getDescription());
+		plant.setDateOfRepot(newPlant.getDateOfRepot());
+		plant.setRepotInfo(newPlant.getRepotInfo());
+		plant.setDateOfBloom(newPlant.getDateOfBloom());
+		plant.setBloomInfo(newPlant.getBloomInfo());
+		plant.setNotes(newPlant.getNotes());
 		plantRepository.save(plant);
 
 	}

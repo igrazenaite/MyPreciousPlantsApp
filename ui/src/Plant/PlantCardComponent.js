@@ -27,6 +27,9 @@ class PlantCardComponent extends Component{
         if (!this.props.plantInfo){
             return null;
         }
+
+        console.log(this.props.plantInfo);
+        
         const actions =
             (<FlatButton
                 label="Back"
@@ -42,7 +45,7 @@ class PlantCardComponent extends Component{
             </div> */
             <div className="caption">
                 <h3>{this.props.plantInfo.name}</h3>
-                <p>Price: {this.props.plantInfo.price}$</p>
+                <p>Price: {this.props.plantInfo.price}€</p>
                 <p>Date of purchase: {this.props.plantInfo.dateOfPurchase}</p>
                 <p>Place of purchase: {this.props.plantInfo.placeOfPurchase}</p>
                 <p>Description: {this.props.plantInfo.description}</p>
