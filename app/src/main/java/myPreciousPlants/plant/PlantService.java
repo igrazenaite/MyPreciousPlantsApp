@@ -41,10 +41,6 @@ public class PlantService {
 		plant.setDateOfPurchase(newPlant.getDateOfPurchase());
 		plant.setPlaceOfPurchase(newPlant.getPlaceOfPurchase());
 		plant.setDescription(newPlant.getDescription());
-		plant.setDateOfRepot(newPlant.getDateOfRepot());
-		plant.setRepotInfo(newPlant.getRepotInfo());
-		plant.setDateOfBloom(newPlant.getDateOfBloom());
-		plant.setBloomInfo(newPlant.getBloomInfo());
 		plant.setNotes(newPlant.getNotes());
 		plantRepository.save(plant);
 
@@ -58,10 +54,6 @@ public class PlantService {
 		plnt.setDateOfPurchase(plant.getDateOfPurchase());
 		plnt.setPlaceOfPurchase(plant.getPlaceOfPurchase());
 		plnt.setDescription(plant.getDescription());
-		plnt.setDateOfRepot(plant.getDateOfRepot());
-		plnt.setRepotInfo(plant.getRepotInfo());
-		plnt.setDateOfBloom(plant.getDateOfBloom());
-		plnt.setBloomInfo(plant.getBloomInfo());
 		plnt.setNotes(plant.getNotes());
 		plantRepository.save(plnt);
 	}

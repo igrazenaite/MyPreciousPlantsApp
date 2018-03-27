@@ -3,16 +3,12 @@ package myPreciousPlants.plant;
 public class PlantForClient {
 
 	private long plantId;
-	//private String imageUrl;
+	// private String imageUrl;
 	private String name;
 	private String price;
 	private String dateOfPurchase;
 	private String placeOfPurchase;
 	private String description;
-	private String dateOfRepot;
-	private String repotInfo;
-	private String dateOfBloom;
-	private String bloomInfo;
 	private String notes;
 
 	public String getDateOfPurchase() {
@@ -29,38 +25,6 @@ public class PlantForClient {
 
 	public void setPlaceOfPurchase(String placeOfPurchase) {
 		this.placeOfPurchase = placeOfPurchase;
-	}
-
-	public String getDateOfRepot() {
-		return dateOfRepot;
-	}
-
-	public void setDateOfRepot(String dateOfRepot) {
-		this.dateOfRepot = dateOfRepot;
-	}
-
-	public String getRepotInfo() {
-		return repotInfo;
-	}
-
-	public void setRepotInfo(String repotInfo) {
-		this.repotInfo = repotInfo;
-	}
-
-	public String getDateOfBloom() {
-		return dateOfBloom;
-	}
-
-	public void setDateOfBloom(String dateOfBloom) {
-		this.dateOfBloom = dateOfBloom;
-	}
-
-	public String getBloomInfo() {
-		return bloomInfo;
-	}
-
-	public void setBloomInfo(String bloomInfo) {
-		this.bloomInfo = bloomInfo;
 	}
 
 	public String getNotes() {
@@ -103,12 +67,12 @@ public class PlantForClient {
 		this.description = description;
 	}
 
-//	public String getImageUrl() {
-//		return imageUrl;
-//	}
-//
-//	public void setImageUrl(String imageUrl) {
-//		this.imageUrl = imageUrl;
-//	}
+	// public String getImageUrl() {
+	// return imageUrl;
+	// }
+	//
+	// public void setImageUrl(String imageUrl) {
+	// this.imageUrl = imageUrl;
+	// }
 
 }
