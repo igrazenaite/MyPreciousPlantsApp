@@ -22,7 +22,7 @@ public class BloomingController {
 	@Autowired
 	private BloomingService bloomingService;
 
-	@RequestMapping(method = RequestMethod.GET)
+	@RequestMapping(value = "/bloomings", method = RequestMethod.GET)
 	public List<BloomingForClient> giveAllBloomings() {
 		return getBloomingService().receiveAllBloomings();
 	}

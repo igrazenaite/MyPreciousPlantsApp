@@ -13,14 +13,14 @@ class PlantCardComponent extends Component{
         };
     } 
 
-
+/* 
     openModal = (plantId) => {
             this.setState({ showModal: !this.state.showModal })
     }
       
       closeModal=()=>{
         this.setState({showModal: false})
-    }
+    } */
 
     render(){
 
@@ -30,13 +30,13 @@ class PlantCardComponent extends Component{
 
         console.log(this.props.plantInfo);
         
-        const actions =
+       /*  const actions =
             (<FlatButton
                 label="Back"
                 primary={true}
                 onClick={this.props.closeAction}
             />);
-
+ */
         const singlePlant=(
             /*<div className="thumbnail">
                 <img className="Image" 
@@ -64,15 +64,15 @@ class PlantCardComponent extends Component{
         return(
             <MuiThemeProvider>
                 <div>
-                    <Dialog
+                    {/* <Dialog
                         title="Plant"
                         actions={actions}
                         modal={true}
                         open={this.props.open}
                         autoScrollBodyContent={true}
-                    >
+                    > */}
                         {singlePlant}
-                    </Dialog>
+                    {/* </Dialog> */}
                     {/* <Modal
                         open={this.state.showModal}
                         closeAction={this.closeModal}

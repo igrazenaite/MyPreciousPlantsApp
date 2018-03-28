@@ -1,164 +1,82 @@
 import React, {Component} from 'react';
-import axios from 'axios';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import {
-    Table,
-    TableBody,
-    TableHeader,
-    TableHeaderColumn,
-    TableRow,
-    TableRowColumn,
-} from 'material-ui/Table';
-import FlatButton from 'material-ui/FlatButton/FlatButton';
-import {API} from '../Host';
-import PlantCardComponent from '../Plant/PlantCardComponent';
+import Drawer from 'material-ui/Drawer';
+import AppBar from 'material-ui/AppBar';
+import CollectionNavigation from './CollectionNavigation';
+import Container from 'muicss/lib/react/container';
+import Row from 'muicss/lib/react/row';
+import Col from 'muicss/lib/react/col';
+import {cyan500} from 'material-ui/styles/colors';
+import axios from 'axios';
+import CollectionTable from './CollectionTable';
 
-const styles ={
-    marginLeft: 0,
-    marginRight: 10,
-    padding: 0
-    
+
+const rowStyle={
+    margin: 0,
+    padding: 0,
 }
 
+const containerStyle={
+    padding: 0,
+}
+
+const colStyle={
+    padding: 0,
+}
+
+const drawerStyle={
+    backgroundColor: cyan500,
+    position: 'absolute',  
+    top: '120px',
+    padding: 0
+  }
+
 class CollectionContainer extends Component{
-
-    constructor() {
-        super();
-
-        this.state = {
-            fixedHeader: true,
-            showRowHover: true,
-            showCheckboxes: false,
-            selectable: true,
-            multiSelectable: false,
-            enableSelectAll: false,
-            deselectOnClickaway: true,
-            height: '300px',
-            showModal: false,
-
-            plants: [],
-            plantId:'',
-            name:'',
-            price:'',
-            dateOfPurchase:'',
-            placeOfPurchase:'',
-            description:'',
-            dateOfRepot:'',
-            repotInfo:'',
-            dateOfBloom:'',
-            bloomInfo:'',
-            notes:'',
-
-            plantInfo:[]
+    constructor(props){
+        super(props);
+        this.state={
+            collection:[]
         }
-    }
-
-    componentWillMount(){
-        axios
-            .get(API+"/collection")
-            .then((response) => {
-                console.log(response);
-                this.setState({plants: response.data});
-            })
-            .catch((error) => {
-                console.log(error);
-            });
-    }
-
-    openModal = (plantId) => {
-        axios.get(API+"/collection/" + plantId)
-          .then((response) => {
-            this.setState({ plantInfo: response.data })
-            this.setState({ showModal: !this.state.showModal })
-          })
-          .catch((error) => {
-            console.log(error);
-    
-          })
-    }
-      
-      closeModal=()=>{
-        this.setState({showModal: false})
     }
 
     render(){
-
-        if (!this.state.plants) {
-            return null;
-        }
-      
-        var plantsList = this.state.plants.map((plant, index) => (
-            <TableRow key={index} >
-                <TableRowColumn>{plant.plantId}</TableRowColumn>
-                <TableRowColumn>{plant.name}</TableRowColumn>
-                {/* <TableRowColumn>{plant.imageUrl}</TableRowColumn> */}
-                <TableRowColumn><FlatButton id="moreButton" label="More" 
-              primary={true} onClick={()=>this.openModal(plant.plantId)}/></TableRowColumn>
-            </TableRow>
-    ))
-
         return(
             <MuiThemeProvider>
             <div>
-                <Table
-                    height={this.state.height}
-                    style={styles}
-                    fixedHeader={this.state.fixedHeader}
-                    selectable={this.state.selectable}
-                    multiSelectable={this.state.multiSelectable}
-                >
-                <TableHeader
-                    displaySelectAll={this.state.showCheckboxes}
-                    adjustForCheckbox={this.state.showCheckboxes}
-                    enableSelectAll={this.state.enableSelectAll}
-                >
-                <TableRow>
-                    <TableHeaderColumn colSpan="3" tooltip="Collection" style={{textAlign: 'center'}}>
-                    Plant Collection</TableHeaderColumn>
-                </TableRow>
-                <TableRow>
-                {/* <TableHeaderColumn 
-                  style={{
-                    whiteSpace: "normal",
-                    wordWrap: "break-word"
-                  }} 
-                  tooltip="Picture">Picture</TableHeaderColumn> */}
-                <TableHeaderColumn 
-                  style={{
-                    whiteSpace: "normal",
-                    wordWrap: "break-word"
-                  }} 
-                  tooltip="PlantId">Id</TableHeaderColumn>
-                <TableHeaderColumn 
-                  style={{
-                    whiteSpace: "normal",
-                    wordWrap: "break-word"
-                  }} 
-                  tooltip="Name">Name</TableHeaderColumn> 
-                  <TableHeaderColumn 
-                  style={{
-                    whiteSpace: "normal",
-                    wordWrap: "break-word"
-                  }} 
-                  tooltip="More">Information</TableHeaderColumn>
-                </TableRow>
-                </TableHeader>
-                <TableBody
-                    displayRowCheckbox={this.state.showCheckboxes}
-                    deselectOnClickaway={this.state.deselectOnClickaway}
-                    showRowHover={this.state.showRowHover}
-                >
-                    {plantsList}
-                </TableBody>
-                </Table>
-                <PlantCardComponent
-                    open={this.state.showModal}
-                    closeAction={this.closeModal}
-                    plantInfo={this.state.plantInfo}/>      
+                <Container fluid={true} style={containerStyle}>
+                <Row style={rowStyle}>
+                <Col md="12" style={colStyle}>
+                    <AppBar className="collection" style={{height: '120px'}}
+                        showMenuIconButton={false}>
+                    </AppBar>  
+                        {/* <img src={logo} className="App-logo" alt="logo" /> */}
+                    </Col>
+                    </Row>
+                </Container>
+                <Container fluid={true} style={containerStyle}>
+                    <Row style={rowStyle}>
+                    <Col md="1" style={colStyle}>
+                    <Drawer className="drawer"
+                        containerStyle={drawerStyle} 
+                        width={70} 
+                        open={this.state.open}>
+                    </Drawer>
+                    </Col>   
+                    <Col md="10" style={colStyle}>
+                        <CollectionTable/> 
+                        {/*  <CollectionNavigation/> */}
+                    </Col>
+                    <Col md="1" style={colStyle}>
+                    <Drawer className="drawer" 
+                        containerStyle={drawerStyle} 
+                        width={70} openSecondary={true} 
+                        open={this.state.open}>
+                    </Drawer>
+                    </Col>
+                </Row>
+                </Container>    
             </div>
             </MuiThemeProvider>
         )
     }
-
-    
-}export default CollectionContainer;
+}export default CollectionContainer

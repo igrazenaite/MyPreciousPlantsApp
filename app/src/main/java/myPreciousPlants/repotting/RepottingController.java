@@ -22,7 +22,7 @@ public class RepottingController {
 	@Autowired
 	private RepottingService repottingService;
 
-	@RequestMapping(method = RequestMethod.GET)
+	@RequestMapping(value = "/repottings", method = RequestMethod.GET)
 	public List<RepotForClient> giveAllRepots() {
 		return getRepottingService().receiveAllRepottings();
 	}
