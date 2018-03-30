@@ -98,18 +98,18 @@ class NewUserRegistrationForm extends Component{
 
     }
 
-    goMain = () => this.props.router.push("/");
+    /* goMain = () => this.props.router.push("/"); */
 
     render(){
         return(
             <MuiThemeProvider>
                 <div>
-                    <RaisedButton 
+                    {/* <RaisedButton 
                         label="Go to Main" 
                         primary={false} 
                         style={styles} 
                         onClick={()=>this.goMain()} 
-                    />
+                    /> */}
                 <form onSubmit={this.registerUser} ref="form" open={this.props.open}>
                     <TextField
                         floatingLabelText="Username"

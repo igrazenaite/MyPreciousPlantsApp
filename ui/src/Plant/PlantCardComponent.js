@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import Dialog from 'material-ui/Dialog';
+//import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 //import Modal from './Modal';
 

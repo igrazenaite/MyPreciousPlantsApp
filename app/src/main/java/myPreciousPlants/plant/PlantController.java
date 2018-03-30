@@ -24,7 +24,7 @@ public class PlantController {
 	public List<PlantForClient> giveAllPlants() {
 		return getPlantService().receiveAllPlants();
 	}
-	
+
 	@RequestMapping(value = "/{plantId}", method = RequestMethod.GET)
 	public Plant findByPlantId(@PathVariable("plantId") final long plantId) {
 		return getPlantService().receiveOnePlant(plantId);
@@ -32,8 +32,8 @@ public class PlantController {
 
 	@RequestMapping(value = "/addNewPlant", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
-	public void createPlant(@RequestBody final AddNewPlant newPlant) {
-		plantService.addNewPlant(newPlant);
+	public void createPlant(@RequestBody final AddNewPlant newPlant, long collectionId) {
+		plantService.addNewPlant(newPlant, collectionId);
 	}
 
 	@RequestMapping(path = "/update/{plantId}", method = RequestMethod.PUT)

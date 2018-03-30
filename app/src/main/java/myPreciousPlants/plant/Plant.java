@@ -7,11 +7,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import myPreciousPlants.blooming.Blooming;
+import myPreciousPlants.collection.Collection;
 import myPreciousPlants.repotting.Repot;
 
 @Entity
@@ -36,6 +40,19 @@ public class Plant {
 	@JsonBackReference(value = "plant")
 	@OneToMany(mappedBy = "plant")
 	private List<Blooming> bloomingsList;
+
+	@ManyToOne
+	@JsonManagedReference(value = "collectionId")
+	@JoinColumn(name = "collectionId")
+	private Collection collection;
+
+	public Collection getCollection() {
+		return collection;
+	}
+
+	public void setCollection(Collection collection) {
+		this.collection = collection;
+	}
 
 	public List<Repot> getRepottings() {
 		return repottingsList;

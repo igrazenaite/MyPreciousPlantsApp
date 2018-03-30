@@ -2,12 +2,12 @@ import React, {Component} from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Drawer from 'material-ui/Drawer';
 import AppBar from 'material-ui/AppBar';
-import CollectionNavigation from './CollectionNavigation';
+//import CollectionNavigation from './CollectionNavigation';
 import Container from 'muicss/lib/react/container';
 import Row from 'muicss/lib/react/row';
 import Col from 'muicss/lib/react/col';
 import {cyan500} from 'material-ui/styles/colors';
-import axios from 'axios';
+//import axios from 'axios';
 import CollectionTable from './CollectionTable';
 
 

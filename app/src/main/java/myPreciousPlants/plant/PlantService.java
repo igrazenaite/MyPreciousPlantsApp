@@ -7,12 +7,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import myPreciousPlants.collection.Collection;
+import myPreciousPlants.collection.CollectionRepository;
+
 @Transactional
 @Service
 public class PlantService {
 
 	@Autowired
 	private PlantRepository plantRepository;
+
+	@Autowired
+	private CollectionRepository collectionRepository;
 
 	public List<PlantForClient> receiveAllPlants() {
 		List<Plant> plantsFromDatabase = getPlantRepository().findAll();
@@ -33,7 +39,7 @@ public class PlantService {
 		return plant;
 	}
 
-	public void addNewPlant(AddNewPlant newPlant) {
+	public void addNewPlant(AddNewPlant newPlant, long collectionId) {
 		Plant plant = new Plant();
 		// plnt.setImageURL(plant.getImageURL());
 		plant.setName(newPlant.getName());
@@ -42,6 +48,8 @@ public class PlantService {
 		plant.setPlaceOfPurchase(newPlant.getPlaceOfPurchase());
 		plant.setDescription(newPlant.getDescription());
 		plant.setNotes(newPlant.getNotes());
+		Collection collection = collectionRepository.findByCollectionId(collectionId);
+		plant.setCollection(collection);
 		plantRepository.save(plant);
 
 	}
@@ -68,6 +76,14 @@ public class PlantService {
 
 	public void setPlantRepository(PlantRepository plantRepository) {
 		this.plantRepository = plantRepository;
+	}
+
+	public CollectionRepository getCollectionRepository() {
+		return collectionRepository;
+	}
+
+	public void setCollectionRepository(CollectionRepository collectionRepository) {
+		this.collectionRepository = collectionRepository;
 	}
 
 }

@@ -8,7 +8,8 @@ import {cyan500} from 'material-ui/styles/colors';
 import Container from 'muicss/lib/react/container';
 import Row from 'muicss/lib/react/row';
 import Col from 'muicss/lib/react/col';
-//import { Link } from 'react-router-dom';
+import NewUserRegistrationForm from './User/NewUserRegistrationForm';
+import Login from './User/Login';
 
 /* const style={
   margin: 5,
@@ -21,7 +22,7 @@ import Col from 'muicss/lib/react/col';
 
 const drawerStyle={
   backgroundColor: cyan500,
-  /* position: 'fixed', */ 
+  position: 'absolute', 
   top: '120px'
 }
 
@@ -36,6 +37,29 @@ const rowStyle={
 
 const colStyle={
   padding: 0
+}
+
+const SideBarLeft=()=>{
+  return(
+    <Col md="1">
+          <Drawer className="drawer"
+              containerStyle={drawerStyle} 
+              width={70} 
+              open={this.open}>
+          </Drawer>
+        </Col>  
+  )
+}
+
+const SideBarRight=()=>{
+  return(
+    <Col md="1">
+        <Drawer className="drawer" 
+          containerStyle={drawerStyle} 
+          width={70} openSecondary={true} 
+          open={this.open}>
+        </Drawer>
+    </Col>)
 }
 
 class App extends Component {
@@ -63,27 +87,25 @@ class App extends Component {
       </Container>
       <Container fluid={true} style={containerStyle}>
         <Row style={rowStyle}>
-        <Col md="1">
-          <Drawer className="drawer"
-              containerStyle={drawerStyle} 
-              width={70} 
-              open={this.state.open}>
-          </Drawer>
-        </Col>  
-        <Col md="1">
-          <Drawer className="drawer" 
-              containerStyle={drawerStyle} 
-              width={70} openSecondary={true} 
-              open={this.state.open}>
-          </Drawer>
-        </Col>
+          <SideBarLeft/>
         <Col md="10">
             <h1>Welcome to My Precious Plants App!</h1>
           <p>
-            Please {/* <Link to="/newUserRegistration" > */}register{/* </Link> */} if you are new, or login to your account.
+            Please <b> {'register'.toLocaleUpperCase()} </b> if you are new, or <b>{'login'.toLocaleUpperCase()}</b> to your account.
           </p>
-          {/* <button><h2 style={style}>{'Start exploring!'.toUpperCase()}</h2></button> */}
-          </Col>
+          <br/>
+        </Col>
+          <SideBarRight/>
+        </Row>
+        <Row>
+          <SideBarLeft/>
+        <Col md="5">
+          <NewUserRegistrationForm/>
+        </Col>
+        <Col md="5">
+          <Login/>
+        </Col>
+          <SideBarRight/>
         </Row>
         </Container>    
       </div>
