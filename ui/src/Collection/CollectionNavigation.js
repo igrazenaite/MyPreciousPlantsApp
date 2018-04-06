@@ -11,7 +11,7 @@ class CollectionNavigation extends Component{
             <main>
                 <Switch>
                     <Route exact path="/" name="home" component={App} />
-                    <Route path="/collection/plant" name="singlePlant" component={PlantCardComponent}/>
+                    <Route path="/collection/{plantId}" name="singlePlant" component={PlantCardComponent}/>
                     <Route path="/collection/addNewPlant" name="addNewPlant" component={NewPlantForm}/>
                 </Switch>
             </main>

@@ -1,5 +1,6 @@
 package myPreciousPlants;
 
+import org.apache.log4j.Logger;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -17,8 +18,11 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @SpringBootApplication
 public class App extends SpringBootServletInitializer {
 
+	static Logger logger = Logger.getLogger(App.class);
+
 	public static void main(String[] args) {
 		SpringApplication.run(App.class, args);
+		logger.info("Application started");
 	}
 
 	@Override

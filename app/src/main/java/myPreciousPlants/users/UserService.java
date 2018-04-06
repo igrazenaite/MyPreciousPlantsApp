@@ -26,6 +26,7 @@ public class UserService {
 		return usersForClient;
 	}
 
+	//-----need to encode passwords!!!!!-----
 	public void addNewUser(AddNewUser newUser) {
 		User use = new User();
 		use.setUserName(newUser.getUserName());

@@ -28,7 +28,10 @@ public class PlantService {
 			// plnt.setImageURL(plant.getImageURL());
 			pfc.setName(plant.getName());
 			pfc.setPrice(plant.getPrice());
+			pfc.setDateOfPurchase(plant.getDateOfPurchase());
+			pfc.setPlaceOfPurchase(plant.getPlaceOfPurchase());
 			pfc.setDescription(plant.getDescription());
+			pfc.setNotes(plant.getNotes());
 			return pfc;
 		}).collect(Collectors.toList());
 		return plantsForClient;

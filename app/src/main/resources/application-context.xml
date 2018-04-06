@@ -7,4 +7,33 @@ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 http://www.springframework.org/schema/context
 http://www.springframework.org/schema/context/spring-context-3.0">
 
+
+	 <bean id="collection"
+          class="myPreciousPlants.collection.Collection">
+        <property name="collectionName" value="Orchid collection" />
+    </bean>
+    <bean id="plant"
+          class="myPreciousPlants.plant.Plant">
+        <property name="name" value="NewOrchid" />
+        <property name="price" value="12.0" />
+        <property name="dateOfPurchase" value="2018-01-01" />
+        <property name="placeOfPurchase" value="Roelke" />
+        <property name="description" value="Good plant" />
+        <property name="notes" value="Water twice a week" />
+    </bean>
+    <bean id="blooming"
+          class="myPreciousPlants.blooming.Blooming">
+        <property name="dateOfBloom" value="2018-01-01" />
+        <property name="bloomInfo" value="Two spikes with 50 blooms" />
+    </bean>
+    <bean id="repotting"
+          class="myPreciousPlants.repotting.Repot">
+        <property name="dateOfRepot" value="2018-04-04" />
+        <property name="repotInfo" value="Larch bark used as media" />
+    </bean>
+    <bean id="users"
+          class="myPreciousPlants.users.User">
+        <property name="userName" value="user" />
+        <property name="password" value="password" />
+    </bean>
 </beans>

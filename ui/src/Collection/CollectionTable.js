@@ -10,8 +10,9 @@ import {
     TableRowColumn,
 } from 'material-ui/Table';
 import FlatButton from 'material-ui/FlatButton/FlatButton';
+//import { Link } from 'react-router-dom';
 import {API} from '../Host';
-import PlantCardComponent from '../Plant/PlantCardComponent';
+//import PlantCardComponent from '../Plant/PlantCardComponent';
 /* import CollectionNavigation from './CollectionNavigation'; */
 
 const styles ={
@@ -64,11 +65,10 @@ class CollectionTable extends Component{
             .catch((error) => {
                 console.log(error);
             });
+        console.log(this.state);
     }
 
-    goToPlant = () => this.props.router.push("/plant");
-
-    /* openModal = (plantId) => {
+    goToPlant = (plantId) => {
         axios.get(API+"/collection/" + plantId)
           .then((response) => {
             this.setState({ plantInfo: response.data })
@@ -78,8 +78,12 @@ class CollectionTable extends Component{
             console.log(error);
     
           })
+          /* return(
+            <link href="/collection/:plantId"/>
+          ) */
+           this.props.router.push("/collection/:plantId"); 
     }
-      
+    /*  
       closeModal=()=>{
         this.setState({showModal: false})
     } */
@@ -89,14 +93,19 @@ class CollectionTable extends Component{
         if (!this.state.plants) {
             return null;
         }
+    
+
+        console.log("plantId", this.state.plantId)
       
         var plantsList = this.state.plants.map((plant, index) => (
             <TableRow key={index} >
                 <TableRowColumn>{plant.plantId}</TableRowColumn>
                 <TableRowColumn>{plant.name}</TableRowColumn>
                 {/* <TableRowColumn>{plant.imageUrl}</TableRowColumn> */}
-                <TableRowColumn><FlatButton id="moreButton" label="More" 
-              primary={true} onClick={()=>this.goToPlant()}/></TableRowColumn>
+                <TableRowColumn>
+                <FlatButton id="moreButton" label="More" 
+                primary={true} onClick={()=>this.goToPlant(plant.plantId)} />
+              </TableRowColumn>
             </TableRow>
     ))
 
@@ -154,11 +163,10 @@ class CollectionTable extends Component{
                     {plantsList}
                 </TableBody>
                 </Table>
-                {/* <CollectionNavigation/> */}
-                <PlantCardComponent
-                   /*  open={this.state.showModal}
+                {/*<PlantCardComponent
+                     open={this.state.showModal}
                     closeAction={this.closeModal}
-                plantInfo={this.state.plantInfo} *//>     
+                plantInfo={this.state.plantInfo} /> */  }  
             </div>
             </MuiThemeProvider>
         )
