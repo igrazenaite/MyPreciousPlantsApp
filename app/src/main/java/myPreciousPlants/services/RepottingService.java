@@ -1,4 +1,4 @@
-package myPreciousPlants.repotting;
+package myPreciousPlants.services;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -8,7 +8,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import myPreciousPlants.plant.Plant;
-import myPreciousPlants.plant.PlantRepository;
+import myPreciousPlants.repositories.PlantRepository;
+import myPreciousPlants.repositories.RepottingRepository;
+import myPreciousPlants.repotting.AddNewRepot;
+import myPreciousPlants.repotting.Repot;
+import myPreciousPlants.repotting.RepotForClient;
 
 @Transactional
 @Service

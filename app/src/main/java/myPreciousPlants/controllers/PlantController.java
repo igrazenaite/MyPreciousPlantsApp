@@ -1,4 +1,4 @@
-package myPreciousPlants.plant;
+package myPreciousPlants.controllers;
 
 import java.util.List;
 
@@ -12,6 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+
+import myPreciousPlants.plant.AddNewPlant;
+import myPreciousPlants.plant.Plant;
+import myPreciousPlants.plant.PlantForClient;
+import myPreciousPlants.services.PlantService;
 
 @RestController
 @RequestMapping(value = "/collection")

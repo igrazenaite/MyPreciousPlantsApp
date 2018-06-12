@@ -2,3 +2,30 @@
 2018-04-06 23:40:00 INFO  App:25 - Application started
 2018-04-06 23:41:01 INFO  App:25 - Application started
 2018-04-06 23:54:20 INFO  App:25 - Application started
+2018-06-11 23:10:22 INFO  App:25 - Application started
+2018-06-11 23:10:35 INFO  PlantController:29 - All plants received
+2018-06-11 23:10:47 INFO  PlantController:36 - Plant number 1 found
+2018-06-11 23:10:58 INFO  PlantController:29 - All plants received
+2018-06-11 23:30:37 INFO  App:25 - Application started
+2018-06-11 23:31:09 INFO  PlantController:29 - All plants received
+2018-06-11 23:43:47 INFO  App:25 - Application started
+2018-06-11 23:46:47 INFO  App:25 - Application started
+2018-06-11 23:46:55 INFO  PlantController:29 - All plants received
+2018-06-11 23:46:57 INFO  PlantController:36 - Plant number 33 found
+2018-06-11 23:47:10 INFO  PlantController:29 - All plants received
+2018-06-11 23:47:19 INFO  PlantController:29 - All plants received
+2018-06-11 23:47:24 INFO  PlantController:36 - Plant number 65 found
+2018-06-12 23:24:09 INFO  App:25 - Application started
+2018-06-12 23:25:14 INFO  PlantController:29 - All plants received
+2018-06-12 23:32:34 INFO  PlantController:29 - All plants received
+2018-06-12 23:32:54 INFO  PlantController:29 - All plants received
+2018-06-12 23:34:48 INFO  App:25 - Application started
+2018-06-12 23:43:23 INFO  App:25 - Application started
+2018-06-12 23:43:28 INFO  PlantController:34 - All plants received
+2018-06-12 23:43:34 INFO  PlantController:34 - All plants received
+2018-06-12 23:43:44 INFO  PlantController:34 - All plants received
+2018-06-12 23:43:46 INFO  PlantController:41 - Plant number 1 found
+2018-06-12 23:43:54 INFO  PlantController:34 - All plants received
+2018-06-12 23:44:03 INFO  PlantController:34 - All plants received
+2018-06-13 00:23:13 INFO  App:25 - Application started
+2018-06-13 00:23:24 INFO  PlantController:34 - All plants received

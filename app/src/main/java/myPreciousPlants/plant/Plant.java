@@ -25,6 +25,7 @@ public class Plant {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(unique = true)
 	private long plantId;
+	private String plantLabel;
 	// private String imageUrl;
 	private String name;
 	private String price;
@@ -100,6 +101,14 @@ public class Plant {
 
 	public void setPlantId(long plantId) {
 		this.plantId = plantId;
+	}
+
+	public String getPlantLabel() {
+		return plantLabel;
+	}
+
+	public void setPlantLabel(String plantLabel) {
+		this.plantLabel = plantLabel;
 	}
 
 	public String getName() {

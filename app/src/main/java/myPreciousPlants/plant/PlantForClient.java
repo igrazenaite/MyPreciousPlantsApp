@@ -3,6 +3,7 @@ package myPreciousPlants.plant;
 public class PlantForClient {
 
 	private long plantId;
+	private String plantLabel;
 	// private String imageUrl;
 	private String name;
 	private String price;
@@ -41,6 +42,14 @@ public class PlantForClient {
 
 	public void setPlantId(long plantId) {
 		this.plantId = plantId;
+	}
+
+	public String getPlantLabel() {
+		return plantLabel;
+	}
+
+	public void setPlantLabel(String plantLabel) {
+		this.plantLabel = plantLabel;
 	}
 
 	public String getName() {

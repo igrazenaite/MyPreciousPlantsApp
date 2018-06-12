@@ -1,4 +1,4 @@
-package myPreciousPlants.blooming;
+package myPreciousPlants.services;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -7,8 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import myPreciousPlants.blooming.AddNewBlooming;
+import myPreciousPlants.blooming.Blooming;
+import myPreciousPlants.blooming.BloomingForClient;
 import myPreciousPlants.plant.Plant;
-import myPreciousPlants.plant.PlantRepository;
+import myPreciousPlants.repositories.BloomingRepository;
+import myPreciousPlants.repositories.PlantRepository;
 
 @Transactional
 @Service

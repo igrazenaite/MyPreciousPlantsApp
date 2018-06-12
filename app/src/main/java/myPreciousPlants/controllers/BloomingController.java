@@ -1,4 +1,4 @@
-package myPreciousPlants.blooming;
+package myPreciousPlants.controllers;
 
 import java.util.List;
 
@@ -13,6 +13,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+
+import myPreciousPlants.blooming.AddNewBlooming;
+import myPreciousPlants.blooming.Blooming;
+import myPreciousPlants.blooming.BloomingForClient;
+import myPreciousPlants.services.BloomingService;
 
 @RestController
 @RequestMapping(value = "/plant")

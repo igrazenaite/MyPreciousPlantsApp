@@ -1,4 +1,4 @@
-package myPreciousPlants.users;
+package myPreciousPlants.services;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -6,6 +6,11 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import myPreciousPlants.repositories.UserRepository;
+import myPreciousPlants.users.AddNewUser;
+import myPreciousPlants.users.User;
+import myPreciousPlants.users.UserForClient;
 
 @Transactional
 @Service
