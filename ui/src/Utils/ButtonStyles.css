@@ -1,0 +1,17 @@
+.primary, a:link, a:visited , a:hover, a:active{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 8px 8px 6px 8px;
+    border:none;
+    width: 25%;
+    height: 37px;
+    text-align: center; 
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: bold;
+    font-family:'Verdana';
+    text-transform: uppercase;
+    color: white;
+    background-color: rgb(4, 110, 18);
+}

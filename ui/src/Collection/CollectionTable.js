@@ -11,7 +11,7 @@ import {
 } from 'material-ui/Table';
 import FlatButton from 'material-ui/FlatButton/FlatButton';
 //import { Link } from 'react-router-dom';
-import {API} from '../Host';
+import {API} from '../Utils/Host';
 //import PlantCardComponent from '../Plant/PlantCardComponent';
 /* import CollectionNavigation from './CollectionNavigation'; */
 

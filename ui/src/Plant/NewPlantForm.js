@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import TextField from 'material-ui/TextField';
-import RaisedButton from 'material-ui/RaisedButton';
+import '../Utils/ButtonStyles.css'
 import axios from 'axios';
-import {API} from '../Host';
+import {API} from '../Utils/Host';
 
-const styles = {
+/* const styles = {
     button: {
       margin: 12,
     },
@@ -19,7 +19,7 @@ const styles = {
       width: '100%',
       opacity: 0,
     },
-};
+}; */
 
 class NewPlantForm extends Component{
     constructor(props){
@@ -147,12 +147,12 @@ class NewPlantForm extends Component{
                         rowsMax={5}
                         onChange={(event, newValue) => this.setState({ notes: newValue })}
                     /><br />
-                    <RaisedButton 
-                        label="Submit" 
-                        primary={true} 
-                        style={styles} 
-                        onClick={(event)=>this.submit(event)} 
-                    />
+                    <button 
+                        type="save" 
+                        className="primary" 
+                        onClick={(event)=>this.submit(event)}>
+                        Submit
+                    </button>
                 </div>
             </MuiThemeProvider>
             

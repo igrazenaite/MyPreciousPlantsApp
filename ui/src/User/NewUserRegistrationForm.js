@@ -2,13 +2,27 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import TextField from 'material-ui/TextField';
-import RaisedButton from 'material-ui/RaisedButton';
-import {API} from '../Host';
+import {API} from '../Utils/Host';
 import swal from 'sweetalert';
+import '../Styles/Login.css';
+import '../Utils/ButtonStyles.css'
+import {grey900} from 'material-ui/styles/colors';
 
 const styles = {
-      margin: 12
+
+    errorStyle: {
+      color: grey900,
+    },
+    underlineStyle: {
+      borderColor: grey900,
+    },
+    floatingLabelStyle: {
+      color: grey900,
+      fontSize:'22px',
+      fontFamily: 'Verdana'
+    }
 }
+  
 
 class NewUserRegistrationForm extends Component{
     constructor(props){
@@ -98,26 +112,27 @@ class NewUserRegistrationForm extends Component{
 
     }
 
-    /* goMain = () => this.props.router.push("/"); */
-
     render(){
         return(
             <MuiThemeProvider>
                 <div>
-                    {/* <RaisedButton 
-                        label="Go to Main" 
-                        primary={false} 
-                        style={styles} 
-                        onClick={()=>this.goMain()} 
-                    /> */}
                 <form onSubmit={this.registerUser} ref="form" open={this.props.open}>
+                    <h2 className="userLoginHeader">Registration</h2>
                     <TextField
+                        className="userName"
+                        floatingLabelStyle={styles.floatingLabelStyle}
+                        underlineStyle={styles.underlineStyle}
+                        underlineFocusStyle={styles.underlineStyle}
                         floatingLabelText="Username"
                         floatingLabelFixed={true}
                         onChange={(event, newValue) => this.setState({ userName: newValue })}
                     /><br />
 
                     <TextField
+                        className="password"
+                        floatingLabelStyle={styles.floatingLabelStyle}
+                        underlineStyle={styles.underlineStyle}
+                        underlineFocusStyle={styles.underlineStyle}
                         floatingLabelText="Password"
                         floatingLabelFixed={true}
                         type="password"
@@ -125,19 +140,22 @@ class NewUserRegistrationForm extends Component{
                     /><br />
 
                     <TextField
+                        className="password"
+                        floatingLabelStyle={styles.floatingLabelStyle}
+                        underlineStyle={styles.underlineStyle}
+                        underlineFocusStyle={styles.underlineStyle}
                         floatingLabelText="Repeat Password"
                         floatingLabelFixed={true}
                         type="password"
                         onChange={(event, newValue) => this.setState({ repeatPassword: newValue })}
                     /><br />
 
-                    <RaisedButton 
-                        label="Register" 
-                        primary={true} 
-                        style={styles} 
-                        onClick={(event)=>this.registerUser(event)} 
-                    />
-
+                    <button 
+                        type="save" 
+                        className="primary" 
+                        onClick={(event)=>this.registerUser(event)}>
+                        Register
+                    </button>
                 </form>
                 </div>
             </MuiThemeProvider>
