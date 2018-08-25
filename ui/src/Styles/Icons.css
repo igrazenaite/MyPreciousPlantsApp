@@ -1,0 +1,23 @@
+#addNewIcon-top{
+    font-size:24px;
+    color:#aaf300;
+    float: right;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+#addNewIcon-bottom{
+    font-size:24px;
+    color:#aaf300;
+    float: right;
+    margin-top: 10px;
+}
+
+.topAddIcon, bottomAddIcon, a:link#icon, a:visited#icon , a:hover#icon, a:active#icon{
+    background-color: white;
+    float: right;
+}
+
+.backButton{
+    float: left;
+}

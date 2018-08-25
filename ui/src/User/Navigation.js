@@ -9,8 +9,7 @@ class Navigation extends Component{
         return(
             <main>
                 <Switch>
-                   <Route path="/collection" component={CollectionContainer}/>
-                    
+                   <Route path="/collection" component={CollectionContainer}/>      
                 </Switch>    
             </main>
         )

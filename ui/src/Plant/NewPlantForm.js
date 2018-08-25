@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import TextField from 'material-ui/TextField';
 import '../Utils/ButtonStyles.css'
 import axios from 'axios';
 import {API} from '../Utils/Host';
+import { Link } from 'react-router-dom';
+import '../Styles/Forms.css';
 
 /* const styles = {
     button: {
@@ -70,91 +70,73 @@ class NewPlantForm extends Component{
         event.preventDefault();
     }
 
+    handleChange=(event)=>{
+        this.setState({[event.target.name]:event.target.value})
+    }
+
     render(){
         return(
-            <MuiThemeProvider>
-                <div>
-                    {/* <RaisedButton
-                        label="Choose an Image"
-                        labelPosition="before"
-                        style={styles.button}
-                        containerElement="label"
-                        >
-                        <input type="file" 
-                        style={styles.exampleImageInput}
-                        value={this.state.imageUrl} 
-                        onChange={this.updateImage} />
-                    </RaisedButton><br/> */}
-                    <TextField
-                        floatingLabelText="Name"
-                        floatingLabelFixed={true}
-                        onChange={(event, newValue) => this.setState({ name: newValue })}
-                    /><br />
-                    <TextField
-                        floatingLabelText="Price"
-                        floatingLabelFixed={true}
-                        onChange={(event, newValue) => this.setState({ price: newValue })}
-                    /><br />
-                    <TextField
-                        floatingLabelText="Date Of Purchase"
-                        floatingLabelFixed={true}
-                        onChange={(event, newValue) => this.setState({ dateOfPurchase: newValue })}
-                    /><br />
-                    <TextField
-                        floatingLabelText="Place Of Purchase"
-                        floatingLabelFixed={true}
-                        onChange={(event, newValue) => this.setState({ placeOfPurchase: newValue })}
-                    /><br />
-                    <TextField
-                        floatingLabelText="Description"
-                        floatingLabelFixed={true}
-                        multiLine={true}
-                        rows={2}
-                        rowsMax={5}
-                        onChange={(event, newValue) => this.setState({ description: newValue })}
-                    /><br />
-                    <TextField
-                        floatingLabelText="Date Of Repot"
-                        floatingLabelFixed={true}
-                        onChange={(event, newValue) => this.setState({ dateOfRepot: newValue })}
-                    /><br />
-                    <TextField
-                        floatingLabelText="Repot Info"
-                        floatingLabelFixed={true}
-                        multiLine={true}
-                        rows={2}
-                        rowsMax={5}
-                        onChange={(event, newValue) => this.setState({ repotInfo: newValue })}
-                    /><br />
-                    <TextField
-                        floatingLabelText="Date Of Bloom"
-                        floatingLabelFixed={true}
-                        onChange={(event, newValue) => this.setState({ dateOfBloom: newValue })}
-                    /><br />
-                    <TextField
-                        floatingLabelText="Bloom Info"
-                        floatingLabelFixed={true}
-                        multiLine={true}
-                        rows={2}
-                        rowsMax={5}
-                        onChange={(event, newValue) => this.setState({ bloomInfo: newValue })}
-                    /><br />
-                    <TextField
-                        floatingLabelText="Notes"
-                        floatingLabelFixed={true}
-                        multiLine={true}
-                        rows={2}
-                        rowsMax={5}
-                        onChange={(event, newValue) => this.setState({ notes: newValue })}
-                    /><br />
+                <div className="container">
+                <div className="row">
+                    <div className="col-sm-3 col-md-3">
+                    <Link to={"/collection"} className="backButton">
+                        <span className="glyphicon glyphicon-arrow-left" ></span>
+                    </Link>
+                    </div>
+                <div className="col-sm-6 col-md-6">
+                <form >
+                    <div className="form-group">
+                        <label htmlFor="name">Name: </label>
+                        <input className="inputBox" type="text" name ="name" value={this.state.name} onChange={this.handleChange}/>
+                    </div><br/>
+                    <div className="form-group">
+                        <label htmlFor="price">Price: </label>
+                        <input className="inputBox" type="text" name ="price" value={this.state.price} onChange={this.handleChange}/>
+                    </div><br/>
+                    <div className="form-group">
+                        <label htmlFor="dateOfPurchase">Date Of Purchase: </label>
+                        <input className="inputBox" type="text" name ="dateOfPurchase" value={this.state.dateOfPurchase} onChange={this.handleChange}/>
+                    </div><br/>
+                    <div className="form-group">
+                        <label htmlFor="placeOfPurchase">Place Of Purchase: </label>
+                        <input className="inputBox" type="text" name ="placeOfPurchase" value={this.state.placeOfPurchase} onChange={this.handleChange}/>
+                    </div><br/>
+                    <div className="form-group">
+                        <label htmlFor="description">Description: </label>
+                        <textarea className="inputBox" rows="2" name ="description" value={this.state.description} onChange={this.handleChange}/>
+                    </div><br/>
+                    <div className="form-group">
+                        <label htmlFor="dateOfRepot">Date Of Repot: </label>
+                        <input className="inputBox" type="text" name ="dateOfRepot" value={this.state.dateOfRepot} onChange={this.handleChange}/>
+                    </div><br/>
+                    <div className="form-group">
+                        <label htmlFor="repotInfo">Repot Info: </label>
+                        <textarea className="inputBox" rows="2" name ="repotInfo" value={this.state.repotInfo} onChange={this.handleChange}/>
+                    </div><br/>
+                    <div className="form-group">
+                        <label htmlFor="dateOfBloom">Date Of Bloom: </label>
+                        <input className="inputBox" type="text" name ="dateOfBloom" value={this.state.dateOfBloom} onChange={this.handleChange}/>
+                    </div><br/>
+                    <div className="form-group">
+                        <label htmlFor="bloomInfo">Bloom Info: </label>
+                        <textarea className="inputBox" rows="2" name ="bloomInfo" value={this.state.bloomInfo} onChange={this.handleChange}/>
+                    </div><br/>
+                    <div className="form-group">
+                        <label htmlFor="notes">Notes: </label>
+                        <textarea className="inputBox" rows="2" name ="notes" value={this.state.notes} onChange={this.handleChange}/>
+                    </div><br/>                          
+                    </form >
+                    </div>
+                        <div className="col-sm-3 col-md-3">
+                        </div>
+                    </div>
                     <button 
                         type="save" 
                         className="primary" 
                         onClick={(event)=>this.submit(event)}>
                         Submit
-                    </button>
+                    </button> 
                 </div>
-            </MuiThemeProvider>
             
         )
     }

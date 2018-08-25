@@ -28,6 +28,7 @@ public class Plant {
 	private String plantLabel;
 	// private String imageUrl;
 	private String name;
+	private String cultureIcons;
 	private String price;
 	private String dateOfPurchase;
 	private String placeOfPurchase;
@@ -125,6 +126,14 @@ public class Plant {
 
 	public void setPrice(String price) {
 		this.price = price;
+	}
+
+	public String getCultureIcons() {
+		return cultureIcons;
+	}
+
+	public void setCultureIcons(String cultureIcons) {
+		this.cultureIcons = cultureIcons;
 	}
 
 	public String getDescription() {

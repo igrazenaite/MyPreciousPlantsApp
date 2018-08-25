@@ -1,0 +1,24 @@
+form{
+    text-align: center;
+    font-size: 16px;
+    margin-top: 50px;
+}
+
+.inputBox{
+    float: right;
+    width: 400px;
+    margin-bottom: 10px;   
+}
+
+input{
+    height: 40px;
+}
+
+textarea{
+    resize: none;
+    height: 80px;
+}
+
+.form-group{
+    margin-bottom: 50px;
+}
