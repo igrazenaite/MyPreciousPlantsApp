@@ -8,7 +8,6 @@ import NewPlantForm from '../Plant/NewPlantForm';
 
 class CollectionNavigation extends Component{
     render(){
-        console.log("ateina")
         return(
             <main>
                 <Switch>

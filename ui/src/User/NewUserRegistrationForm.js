@@ -5,7 +5,7 @@ import TextField from 'material-ui/TextField';
 import {API} from '../Utils/Host';
 import swal from 'sweetalert';
 import '../Styles/Login.css';
-import '../Utils/ButtonStyles.css'
+import '../Styles/Buttons.css'
 import {grey900} from 'material-ui/styles/colors';
 
 const styles = {

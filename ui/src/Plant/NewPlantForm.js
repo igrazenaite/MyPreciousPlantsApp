@@ -1,25 +1,10 @@
 import React, {Component} from 'react';
-import '../Utils/ButtonStyles.css'
 import axios from 'axios';
 import {API} from '../Utils/Host';
 import { Link } from 'react-router-dom';
 import '../Styles/Forms.css';
+import '../Styles/Buttons.css';
 
-/* const styles = {
-    button: {
-      margin: 12,
-    },
-    exampleImageInput: {
-      cursor: 'pointer',
-      position: 'absolute',
-      top: 0,
-      bottom: 0,
-      right: 0,
-      left: 0,
-      width: '100%',
-      opacity: 0,
-    },
-}; */
 
 class NewPlantForm extends Component{
     constructor(props){

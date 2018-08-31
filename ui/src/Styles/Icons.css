@@ -21,3 +21,12 @@
 .backButton{
     float: left;
 }
+
+.moreIcons, a:link.moreIcons, a:visited.moreIcons , a:hover.moreIcons, a:active.moreIcons{
+    background-color: white;
+    color:#aaf300;
+    font-size: 20px;
+}
+#deleteIcon{
+    color: #f70800;
+}

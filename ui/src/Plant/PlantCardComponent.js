@@ -1,100 +1,57 @@
 import React, {Component} from 'react';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-//import axios from 'axios';
+import axios from 'axios';
 //import Dialog from 'material-ui/Dialog';
-import FlatButton from 'material-ui/FlatButton';
 //import Modal from './Modal';
-//import {API} from '../Host';
+import {API} from '../Utils/Host';
+import { Link } from 'react-router-dom';
 
 class PlantCardComponent extends Component{
-   /*  constructor(props){
+    /*constructor(props){
         super(props);
-        this.state={
-            open: false,
-            showModal: false,
-        };
-    }  */
+         this.state={
+            plantInfo:[]
+        } 
+    }*/
 
-/* 
-    openModal = (plantId) => {
-            this.setState({ showModal: !this.state.showModal })
-    }
-      
-      closeModal=()=>{
-        this.setState({showModal: false})
-    } */
-
-    /* componentWillMount=(plantId)=>{
-        axios.get(API+"/collection/" + plantId)
-          .then((response) => {
+    /* componentWillMount=()=>{
+        axios.get(API+"/collection/" + this.props.plant.plantId)
+        .then((response) => {
             this.setState({ plantInfo: response.data })
-          })
-          .catch((error) => {
-            console.log(error);
-    
-          });
-        console.log(this.state);
-    } */
-
-    render(){
-
-        /* if (!this.props.plantInfo){
-            return null;
-        } */
-
-        console.log("plantinfo", this.props.plantsList);
-        
-       /*  const actions =
-            (<FlatButton
-                label="Back"
-                primary={true}
-                onClick={this.props.closeAction}
-            />);
- */
-        const singlePlant=(
-            /*<div className="thumbnail">
-                <img className="Image" 
-                    src={plantInfo} 
-                    alt="plant"/>
-            </div> */
-            <div className="caption">
-                <h3>Id: {this.props.params.plantId}</h3>
-                <p>Name: {this.props.params.name}</p>
-                <p>Price: {this.props.params.price}€</p>
-                <p>Date of purchase: {this.props.params.dateOfPurchase}</p>
-                <p>Place of purchase: {this.props.params.placeOfPurchase}</p>
-                <p>Description: {this.props.params.description}</p>
-                <p>Repotting history: {this.props.params.repotting}</p>
-                <p>Blooming history: {this.props.params.blooming}</p>
-                <p>Notes: {this.props.params.notes}</p>
-                <FlatButton
-                label="Open"
-                primary={true}
-                /* onClick={()=>this.openModal(this.props.params.description)} */
-            /> 
-            </div>
-
-        )
-
-        return(
-            <MuiThemeProvider>
-                <div>
-                    {/* <Dialog
-                        title="Plant"
-                        actions={actions}
-                        modal={true}
-                        open={this.props.open}
-                        autoScrollBodyContent={true}
-                    > */}
-                        {singlePlant}
-                    {/* </Dialog> */}
-                    {/* <Modal
-                        open={this.state.showModal}
-                        closeAction={this.closeModal}
-                        plantInfo={this.state.plantInfo}/> */}
-                </div>
-            </MuiThemeProvider>
-        )
+        })
+        .catch((error) => {
+            console.log(error);   
+        });
+          console.log("plantInfo", this.state)
     }
-}
+ */
+    render(){
+        return(
+            <div>
+                
+                <h2>{this.props.plant.name}</h2> 
+                {/* <img>{this.props.plant.imageUrl}</img> */}
+                <p>{this.props.plant.plantLabel}</p> 
+                <p>{this.props.plant.dateOfPurchase}</p>
+                <p>{this.props.plant.placeOfPurchase}</p>
+                <p>{this.props.plant.cultureIcons}</p> 
+                <p>{this.props.plant.price}</p> 
+                <p>{this.props.plant.description}</p> 
+                <Link to="/collection" 
+                        role="button" 
+                        type="submit" 
+                        className="modalButton" 
+                        onClick={()=>this.openBloomingsModal()}>
+                        Bloomings
+                </Link>
+                <Link to="/collection" 
+                        role="button" 
+                        type="submit" 
+                        className="modalButton" 
+                        onClick={()=>this.openRepottingsModal()}>
+                        Repottings
+                </Link>
+            </div>
+        );
+    } 
+};
 export default PlantCardComponent;
